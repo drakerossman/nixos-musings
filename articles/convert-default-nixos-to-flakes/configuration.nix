@@ -6,6 +6,14 @@
       ./hardware-configuration.nix
     ];
 
+  nix = {
+    # there's no mention of `package =` - https://zimbatm.com/notes/nixflakes
+    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
+    extraOptions = ''
+        experimental-features = nix-command flakes
+    '';
+  };
+
   boot.loader = {
     grub = {
       enable = true;
@@ -73,7 +81,7 @@
   };
 
   # ssh
-  services.openssh.settings = {
+  services.openssh.seetings = {
     enable = true;
     kexAlgorithms = [ "curve25519-sha256" ];
     ciphers = [ "chacha20-poly1305@openssh.com" ];
