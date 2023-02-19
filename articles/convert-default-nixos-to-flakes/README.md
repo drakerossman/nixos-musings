@@ -1,6 +1,6 @@
 # How to Convert Default NixOS to NixOS with Flakes
 
-Originally published at [drakerossman.com](https://drakerossman.com/blog/convert-default-nixos-to-flake-nixos).
+Originally published at [drakerossman.com - How to Convert Default NixOS to NixOS with Flakes](https://drakerossman.com/blog/how-to-convert-default-nixos-to-nixos-with-flakes).
 
 This is the supplementary code for the article describing how to use flakes with NixOS.
 
