@@ -7,8 +7,7 @@
     ];
 
   nix = {
-    # there's no mention of `package =` - https://zimbatm.com/notes/nixflakes
-    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
+    package = pkgs.nixFlakes;
     extraOptions = ''
         experimental-features = nix-command flakes
     '';
