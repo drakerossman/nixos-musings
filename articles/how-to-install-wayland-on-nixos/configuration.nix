@@ -40,20 +40,10 @@
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # graphics
-  services.xserver = {
-    enable = true;
-    resolutions = [{ x = 1920; y = 1080; }];
-    virtualScreen = { x = 1920; y = 1080; };
-    layout = "us"; # keyboard layout
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    displayManager.defaultSession = "xfce";
-    autorun = true; # run on graphic interface startup
-    libinput.enable = true; # touchpad support
-  };
+  # wayland-related
+  # programs.sway.enable = true; # commented out due to usage of home-manager's sway
+  security.polkit.enable = true;
+  hardware.opengl.enable = true; # when using QEMU KVM
 
   # audio
   sound.enable = true;
@@ -92,6 +82,15 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
+    dejavu_fonts # mind the underscore! most of the packages are named with a hypen, not this one however
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+  ];
+
 
   # installed packages
   environment.systemPackages = with pkgs; [
