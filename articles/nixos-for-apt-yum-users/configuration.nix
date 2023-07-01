@@ -73,13 +73,15 @@
   };
 
   # ssh
-  services.openssh.settings = {
+  services.openssh = {
     enable = true;
-    kexAlgorithms = [ "curve25519-sha256" ];
-    ciphers = [ "chacha20-poly1305@openssh.com" ];
-    passwordAuthentication = false;
-    permitRootLogin = "no"; # do not allow to login as root user
-    kbdInteractiveAuthentication = false;
+    settings = {
+      kexAlgorithms = [ "curve25519-sha256" ];
+      ciphers = [ "chacha20-poly1305@openssh.com" ];
+      passwordAuthentication = false;
+      permitRootLogin = "no"; # do not allow to login as root user
+      kbdInteractiveAuthentication = false;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -104,7 +106,8 @@
           name = "search-crates-io";
           publisher = "belfz";
           version = "1.2.1";
-          sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+          sha256 = "sha256-K2H4OHH6vgQvhhcOFdP3RD0fPghAxxbgurv+N82pFNs=";
+          # sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
         }
       ];
     })
