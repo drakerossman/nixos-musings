@@ -1,0 +1,9 @@
+--- src/alejandra_cli/Cargo.toml
++++ src/alejandra_cli/Cargo.toml
+@@ -1,5 +1,5 @@
+ [[bin]]
+-name = "alejandra"
++name = "alejandra4"
+ path = "src/main.rs"
+
+ [dependencies]
