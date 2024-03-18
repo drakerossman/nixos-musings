@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
 
     postPatch = ''
       substituteInPlace src/alejandra/src/builder.rs \
-          --replace "2 * build_ctx.indentation" "4 * build_ctx.indentation"
+          --replace-fail "2 * build_ctx.indentation" "4 * build_ctx.indentation"
 
       rm -r src/alejandra/tests
     '';
